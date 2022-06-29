@@ -12,6 +12,12 @@
     margin: 0 auto;
 }
 
+@media screen and (max-width: 768px) {
+    .main{
+        width: 95vw;
+    }
+}
+
 nav{
     display: flex;
     justify-content: space-between;
@@ -38,6 +44,11 @@ nav input {
     transition: all ease;
     transition-duration: .2s;
     box-shadow: 3px 3px 1px white;
+}
+@media screen and (max-width: 526px) {
+    nav input{
+        width: 220px;
+    }
 }
 
 nav input:hover{

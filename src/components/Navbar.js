@@ -1,8 +1,10 @@
-const Navbar = () => {
+import SearchNote from "./SearchNote"
+
+const Navbar = ({searchNote}) => {
     return (
         <nav>
             <h2>Notes.</h2>
-            <input type="search" placeholder="Cari catatan" />
+            <SearchNote searchNote={searchNote} />
         </nav>
     )
 }
