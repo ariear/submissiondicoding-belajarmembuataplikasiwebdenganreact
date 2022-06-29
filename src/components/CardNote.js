@@ -1,6 +1,6 @@
 import { showFormattedDate } from "../utils"
 
-const CardNote = ({deleteNote, id, title,body,createdAt}) => {
+const CardNote = ({deleteNote , archiveNote, id, title,body,createdAt,archived, unArchiveNote}) => {
     return (
         <div className="card-note">
             <h3>{title}</h3>
@@ -8,7 +8,7 @@ const CardNote = ({deleteNote, id, title,body,createdAt}) => {
             <p>{body}</p>
             <div>
                 <button onClick={() => deleteNote(id)} >Hapus</button>
-                <button>Arsipkan</button>
+                <button onClick={() => archived ? unArchiveNote(id) : archiveNote(id) } style={{ backgroundColor: archived ? '#3AB0FF' : '#FFC300' }} >{ archived ? 'Aktifkan' : 'Arsipkan' }</button>
             </div>
         </div>
     )

@@ -119,6 +119,10 @@ nav input:hover{
     margin-bottom: 30px;
 }
 
+.active-note{
+    margin-bottom: 40px;
+}
+
 .card-note{
     width: 350px;
     margin: 10px;
