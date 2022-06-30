@@ -1,6 +1,6 @@
 import CardNote from "./CardNote"
 
-const ActiveNote = ({notes , deleteNote, archiveNote,unArchiveNote, inputSearch}) => {
+const ActiveNote = ({notes , deleteNote, archiveNote, inputSearch}) => {
     return (
         <div className="active-note">
             <h2>Catatan</h2>

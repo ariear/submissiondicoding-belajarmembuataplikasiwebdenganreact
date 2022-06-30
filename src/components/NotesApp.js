@@ -17,8 +17,7 @@ class NotesApp extends React.Component{
                 body: '',
                 archived: false,
                 createdAt: ''
-            },
-            maxchar: 50
+            }
         }
 
         this.deleteNoteHandle = this.deleteNoteHandle.bind(this)
@@ -45,12 +44,14 @@ class NotesApp extends React.Component{
         note[0].archived = true
 
         let newNote = this.state.notes.filter(note => note.id !== id)
-        newNote.push(note[0])
 
         this.setState((prevstate) => {
             return {
                 ...prevstate,
-                notes: newNote
+                notes: [
+                    ...newNote,
+                    note[0]
+                ]
             }
         })
     }
@@ -60,12 +61,14 @@ class NotesApp extends React.Component{
         note[0].archived = false
 
         let newNote = this.state.notes.filter(note => note.id !== id)
-        newNote.push(note[0])
 
         this.setState((prevstate) => {
             return {
                 ...prevstate,
-                notes: newNote
+                notes: [
+                    ...newNote,
+                    note[0]
+                ]
             }
         })
     }
@@ -102,7 +105,6 @@ class NotesApp extends React.Component{
                     archived: false,
                     createdAt: ''
                 },
-                maxchar: 50
             }
         })
     }
@@ -117,8 +119,7 @@ class NotesApp extends React.Component{
                 formvalue: {
                     ...prevstate.formvalue,
                     title: value
-                },
-                maxchar: value.length === 0 ? 50 : this.state.maxchar - 1
+                }
             }
         })
     }
@@ -139,7 +140,7 @@ class NotesApp extends React.Component{
         return(
             <div className="main">
                 <Navbar searchNote={this.SearchNoteHandle} />
-                <NewNote addNewNoteHandle={this.addNewNoteHandle} formvalue={this.state.formvalue} onTitleHandle={this.onTitleHandle} onBodyHandle={this.onBodyHandle} maxchar={this.state.maxchar} />
+                <NewNote addNewNoteHandle={this.addNewNoteHandle} formvalue={this.state.formvalue} onTitleHandle={this.onTitleHandle} onBodyHandle={this.onBodyHandle} />
                 <NoteList notes={this.state.notes} deleteNote={this.deleteNoteHandle} archiveNote={this.archiveNoteHandle} unArchiveNote={this.unArchiveNoteHandle} inputSearch={this.state.inputSearch} />
             </div>
         )
